@@ -12,6 +12,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Exo', sans-serif;
+
 }
 
 a:hover {
@@ -137,7 +138,7 @@ a:hover {
     }
 
     .show-more {
-        font-size: 1.3rem !important;
+        font-size: 0.7rem !important;
     }
 }
 
@@ -372,6 +373,7 @@ a:hover {
 
 .show-more {
     margin-top: 0px !important;
+    font-size: 1.1rem !important;
 }
 
 .exchange-image {
