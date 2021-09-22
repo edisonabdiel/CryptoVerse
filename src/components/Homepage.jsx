@@ -1,13 +1,21 @@
+// React Modules
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+// Millify
 import millify from 'millify';
-
+// Ant Design components
 import { Typography, Row, Col, Statistic } from 'antd';
+// Custom API
+import { useGetCryptosQuery } from '../services/cryptoApi';
 
+// Typography destructuring
 const { Title } = Typography;
 
 const Homepage = () => {
+const { data, isFetching } = useGetCryptosQuery();
+
+    console.log(data);
+
     return (
         <>
             <Title level={2} className="heading">Global Crypto Stats</Title>
