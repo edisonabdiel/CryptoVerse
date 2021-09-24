@@ -14,9 +14,9 @@ const { Option } = Select;
 const demoImage = 'https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News'
 
 const News = ({ simplified }) => {
-    const [newsCategory, setNewsCategory] = useState('Cryptocurrencies');
-    const { data, isFetching } = useGetCryptosQuery(10);
-    const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory: 'Cryptocurrency', count: simplified ? 6 : 21 });
+    const [newsCategory, setNewsCategory] = useState('Cryptocurrency');
+    const { data, isFetching } = useGetCryptosQuery(100);
+    const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, count: simplified ? 6 : 21 });
 
     console.log(cryptoNews);
 
@@ -33,12 +33,18 @@ const News = ({ simplified }) => {
                             placeholder="Select a Crypto"
                             optionFilterProp="children"
                             onChange={(value) => setNewsCategory(value)}
-                        filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                            filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                        >
+                            <Option value="Cryptocurrency">Cryptocurrency</Option>
+                            {data?.data?.coins.map(coin => (
+                                <Option key={coin.id} value={coin.name}>{coin.name}</Option>
+                            ))}
+                        </Select>
                     </Col>
                 )}
                 {cryptoNews.value.map((news) => (
                     <Col xs={24} sm={12} lg={8} key={news.id}>
-                        <Card className="news-card" hoverable >
+                        <Card className="news-card" hoverable style={{borderRadius: '3%'}}>
                             <a href={news.url} target="_blank" rel="noreferrer">
                                 <div className="news-image-container">
                                     <Title className="news-title" level={4}>{news.name}</Title>
