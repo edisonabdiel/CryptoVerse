@@ -1,20 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import millify from 'millify';
 import { Card, Row, Col, Input } from 'antd';
 
 import { useGetCryptosQuery } from '../services/cryptoApi';
+import Loader from './Loader';
 
-const Cryptocurrencies = () => {
-    const { data: cryptosList, isFetching } = useGetCryptosQuery();
-    const [cryptos, setCryptos] = useState(cryptosList?.data?.coins);
+const Cryptocurrencies = ({ simplified }) => {
+    const count = simplified ? 10 : 100;
+    const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
+    const [cryptos, setCryptos] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
+    // Gets executed whenever the dependencies array changes. 
+    useEffect(() => {
 
-    console.log(cryptos);
+        const filteredCryptos = cryptosList?.data?.coins.filter((crypto) => (
+            crypto.name.toLowerCase().includes(searchTerm.toLowerCase()))
+        );
+
+        setCryptos(filteredCryptos);
+
+    }, [cryptosList, searchTerm]);
+
+    if (isFetching) return <Loader />;
 
 
     return (
         <>
+            {!simplified && (
+                <div className="search-crypto">
+                    <Input placeholder="Search Cryptocurrency" onChange={(e) => setSearchTerm(e.target.value)} />
+                </div>
+            )}
             <Row gutter={[32, 32]} className="crypto-card-container">
                 {cryptos?.map((cryptoCurrency) => (
                     <Col key={cryptoCurrency.id} xs={24} sm={12} lg={6} className="crypto-card" span={12} >
