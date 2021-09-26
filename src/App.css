@@ -2,7 +2,7 @@
     --text-primary: #000;
     --bgPrimary: rgb(247, 243, 243);
     --bgSecondary: #F9F9F9;
-    --green: #31df0e;
+    --green: #0FD850;
     --light-blue: #e6f7ff;
     --border: #d9d9d9;
 }
@@ -374,6 +374,10 @@ a:hover {
 .show-more {
     margin-top: 0px !important;
     font-size: 1.1rem !important;
+}
+
+.exchange-header-container{
+    margin-bottom: 15px;
 }
 
 .exchange-image {

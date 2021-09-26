@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { Col, Row, Typography } from 'antd';
@@ -24,8 +23,8 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
         label: 'Price In USD',
         data: coinPrice,
         fill: false,
-        backgroundColor: '#0071bd',
-        borderColor: '#0071bd',
+        backgroundColor: '#0FD850',
+        borderColor: '#1D6FA3',
       },
     ],
   };

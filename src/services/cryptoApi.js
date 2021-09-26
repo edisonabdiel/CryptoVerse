@@ -8,7 +8,7 @@ const cryptoApiHeaders = {
 const createRequest = (url) => ({ url, headers: cryptoApiHeaders });
 // Utility function to add headers and url to the API call
 const baseURL = 'https://coinranking1.p.rapidapi.com';
-// Endpoints calling the API
+// Endpoints calling the API, takes params coming from the redux hook
 export const cryptoApi = createApi({
   reducerPath: 'cryptoApi',
   baseQuery: fetchBaseQuery({ baseUrl: baseURL }),
@@ -23,7 +23,7 @@ export const cryptoApi = createApi({
       query: (coinId) => createRequest(`/coin/${coinId}`),
     }),
     getCryptoHistory: builder.query({
-      query: ({ coinId, timePeriod }) => createRequest(`coin/${coinId}/history/${timePeriod}`),
+      query: ({ coinId, timeperiod }) => createRequest(`coin/${coinId}/history/${timeperiod}`),
     }),
   }),
 });
