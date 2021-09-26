@@ -18,7 +18,6 @@ const News = ({ simplified }) => {
     const { data, isFetching } = useGetCryptosQuery(100);
     const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, count: simplified ? 6 : 21 });
 
-    console.log(cryptoNews);
 
     if (!cryptoNews || isFetching) return <Loader />
 
