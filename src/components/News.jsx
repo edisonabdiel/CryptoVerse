@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import { Link } from 'react-router-dom';
 import { Card, Row, Col, Avatar, Select, Typography } from 'antd';
 import moment from 'moment';
 import Loader from './Loader';

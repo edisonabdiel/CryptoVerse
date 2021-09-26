@@ -2,7 +2,7 @@
 import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 //Design components
-import { Layout, Typography, Space, Button } from 'antd';
+import { Layout, Typography, Space } from 'antd';
 // Custom components
 import { Navbar, Exchanges, Homepage, Cryptocurrencies, CryptoDetails, News } from './components';
 
