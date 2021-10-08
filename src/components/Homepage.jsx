@@ -8,7 +8,7 @@ import { Typography, Row, Col, Statistic } from 'antd';
 // Custom API
 import { useGetCryptosQuery } from '../services/cryptoApi';
 //Custom Components
-import { Cryptocurrencies, News } from '../components';
+import { Cryptocurrencies, News, Loader } from '../components';
  
 
 // Typography destructuring
@@ -18,7 +18,7 @@ const Homepage = () => {
     const { data, isFetching } = useGetCryptosQuery(10);
     const globalStats = data?.data?.stats;
 
-    if(isFetching) return <p>Loading...</p>;
+    if(isFetching) return <Loader />;
 
     return (
         <>
