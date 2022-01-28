@@ -1,4 +1,4 @@
-## CrptoVerse
+## CrptoVerse  [![Netlify Status](https://api.netlify.com/api/v1/badges/19e74389-3286-47db-9c54-d024fd1c9ddb/deploy-status)](https://app.netlify.com/sites/cryptoverses/deploys)
 
 An all in one crypto currency dashboard for crypto enthusiasts. It features:
  - Global Cryptocurrency Market (GCCM)
