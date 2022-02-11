@@ -15,7 +15,7 @@ const Exchanges = () => {
 
     console.log(exchangeList)
 
-    if (isFetching) return <Loader />
+    if (isFetching || !exchangeList) return <Loader />
 
     return (
         <>
